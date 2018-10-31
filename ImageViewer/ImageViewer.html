@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Image Viewer</title>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <style>
+        .Button {
+            background-color: #0055aa;
+            border: 2px solid #0055aa;
+            color: white;
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            border-radius: 10%;
+            transition-duration: 0.4s;
+        }
+
+            .Button:hover {
+                background-color: #ffffff;
+                color: black;
+                box-shadow: 0 9px #999;
+            }
+
+            .Button:active {
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+            }
+    </style>
+</head>
+<body>
+    <div id="imagebox" style="width: 100%; height: 610px; border: 2pt solid black">
+        <img style="position:absolute; top:50%; left:50%; transform:translateX(-50%) translateY(-50%)" id="currentimage" src="img/1.png" height="300" width="400" />
+    </div>
+    <div id="actionzone" align="center" style="margin: 10px;">
+        <span id="selectimage" style="margin: 10px;">
+            <input type="button" class="Button" value="第一张" id="page1">
+            <input type="button" class="Button" value="上一张" id="page-">
+            <input type="button" class="Button" value="下一张" id="page+">
+            <input type="button" class="Button" value="最后一张" id="pagel">
+        </span>
+        <span id="imageedit" style="margin: 10px;">
+            <input type="button" class="Button" value="放大" id="magnify">
+            <input type="button" class="Button" value="缩小" id="deflate">
+            <input type="button" class="Button" value="原图" id="original">
+        </span>
+    </div>
+    <script type="text/javascript">
+        $("#page1").click(function () {
+            $("#currentimage").attr("src", "img/1.png");
+        })
+        $("#pagel").click(function () {
+            $("#currentimage").attr("src", "img/4.png");
+        })
+        $("#magnify").click(function () {
+            var width = parseInt($("#currentimage").attr("width"));
+            if (width < 760)
+                width += 40;
+            $("#currentimage").attr("width", String(width));
+            var height = parseInt($("#currentimage").attr("height"));
+            if (height < 570)
+                height += 30;
+            $("#currentimage").attr("height", String(height));
+        })
+        $("#deflate").click(function () {
+            var width = parseInt($("#currentimage").attr("width"));
+            if (width > 40)
+                width -= 40;
+            $("#currentimage").attr("width", String(width));
+            var height = parseInt($("#currentimage").attr("height"));
+            if (height > 30)
+                height -= 30;
+            $("#currentimage").attr("height", String(height));
+
+        })
+        $("#original").click(function () {
+            $("#currentimage").attr("height", "300");
+            $("#currentimage").attr("width", "400");
+        })
+    </script>
+</body>
+</html>

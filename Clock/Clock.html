@@ -1,0 +1,120 @@
+﻿<html>
+<head>
+    <title>Clock</title>
+    <style>
+        #Background {
+            position: relative;
+            height: 400px;
+            width: 400px;
+        }
+        .Clockband {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border: 1px solid black;
+            width: 400px;
+            height: 400px;
+            border-radius: 200px;
+        }
+        #Substance {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 380px;
+            height: 380px;
+            border-radius: 190px;
+            background-color: white;
+        }
+        #Heuerhand {
+            position: absolute;
+            width: 80px;
+            border-top: 6px solid;
+            top: 200px;
+            left: 120px;
+            transform-origin: right;
+            transform: rotate(90deg);
+        }
+        #Minutohand {
+            position: absolute;
+            width: 120px;
+            border-top: 4px solid;
+            top: 200px;
+            left: 80px;
+            transform-origin: right;
+            transform: rotate(90deg);
+        }
+        #Secondohand {
+            position: absolute;
+            width: 160px;
+            border-top: 2px solid red;
+            top: 200px;
+            left: 40px;
+            transform-origin: right;
+            transform: rotate(90deg);
+        }
+        #Pin {
+            position: absolute;
+            top: 196px;
+            left: 196px;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: lightsteelblue;
+        }
+        #Digittime{
+            position: absolute;
+            top: 160px;
+            left: 25px;
+            width: 350px;
+            height: 80px;
+            text-align: center;
+            color: dimgray;
+            font: bold 80px Arial;
+        }
+    </style>
+</head>
+<body>
+    <div id="Background">
+        <div class="Clockband"></div>
+        <div id="Substance"></div>
+        <script type="text/javascript">
+            var clockbg = document.getElementById("Background");
+            var clockst = document.getElementById("Substance");
+            for (var i = 0; i < 180; i += 6) {
+                var scale = document.createElement("div");
+                scale.style.position = "absolute";
+                scale.style.width = "400px";
+                if (i % 5 == 0)
+                    scale.style.borderTop = "2px solid red";
+                else
+                    scale.style.borderTop = "1px solid";
+                scale.style.top = "200px";
+                scale.style.transform = "rotate(" + i + "deg)";
+                clockbg.insertBefore(scale, clockst);
+            }
+        </script>
+        <div id="Digittime"></div>
+        <div id="Heuerhand"></div>
+        <div id="Minutohand"></div>
+        <div id="Secondohand"></div>
+        <div id="Pin"></div>
+        <script type="text/javascript">
+            function changehand() {
+                var date     = new Date();
+                var heuer    = date.getHours();
+                var minuto   = date.getMinutes();
+                var secondo  = date.getSeconds();
+                var msecondo = date.getMilliseconds();
+                document.getElementById("Heuerhand").style.transform = "rotate(" + (heuer * 30 + minuto * 0.5 + secondo * 0.00833 + 90) + "deg)";
+                document.getElementById("Minutohand").style.transform = "rotate(" + (minuto * 6 + secondo * 0.1 + msecondo * 0.0001 + 90) + "deg)";
+                document.getElementById("Secondohand").style.transform = "rotate(" + (secondo * 6 + msecondo * 0.006 + 90) + "deg)";
+                if (heuer < 10) heuer = '0' + heuer;
+                if (minuto < 10) minuto = '0' + minuto;
+                if (secondo < 10) secondo = '0' + secondo;
+                document.getElementById("Digittime").innerHTML = heuer + ":" + minuto + ":" + secondo;
+            }
+            setInterval(changehand, 10);
+        </script>
+    </div>
+</body>
+</html>

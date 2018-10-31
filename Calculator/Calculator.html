@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    <title>Calculator</title>
+    <style>
+        .Button {
+            border: none;
+            color: white;
+            width: 120px;
+            height: 60px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 36px;
+            border-radius: 10%;
+            transition-duration: 0.4s;
+        }
+            .Button.Blue {
+                background-color: #0055aa;
+                border: 5px solid #0055aa;
+            }
+            .Button.Black {
+                background-color: #555555;
+                border: 5px solid #555555;
+            }
+            .Button.Red {
+                background-color: #aa0000;
+                border: 5px solid #aa0000;
+            }
+            .Button.Green {
+                background-color: #00aa55;
+                border: 5px solid #00aa55;
+            }
+            .Button:hover {
+                background-color: #ffffff;
+                color: black;
+                box-shadow: 0 9px #999;
+            }
+            .Button:active {
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+            }
+    </style>
+    <script type="text/javascript">
+        var numresult;
+        var memory = 0;
+        function onclicknum(nums) {
+            str = document.getElementById("nummessege");
+            if (str.value == "0")
+                str.value = nums;
+            else
+                str.value = str.value + nums;
+        }
+        function onclickclear() {
+            str = document.getElementById("nummessege");
+            str.value = "0";
+        }
+        function allclear() {
+            onclickclear();
+            memoryclear();
+        }
+        function onclickresult() {
+            str = document.getElementById("nummessege");
+            numresult = eval(str.value);
+            str.value = numresult;
+        }
+        function memoryplus() {
+            onclickresult();
+            str = document.getElementById("nummessege");
+            memory -= -str.value;
+        }
+        function memoryminus() {
+            onclickresult();
+            str = document.getElementById("nummessege");
+            memory -= str.value;
+        }
+        function memorytimes() {
+            onclickresult();
+            str = document.getElementById("nummessege");
+            memory *= str.value;
+        }
+        function memoryread() {
+            str = document.getElementById("nummessege");
+            str.value = memory;
+        }
+        function memoryclear() {
+            memory = 0;
+        }
+    </script>
+</head>
+<body>
+    <table border="0" align="center">
+        <tr>
+            <td colspan="5"><input type="text" id="nummessege" style="font-size: 50px; text-align: right" readonly="readonly" value="0"/></td>
+        </tr>
+        <tr height="70px">
+            <td align="center"><input type="button" value="M+" id="M+" onclick="memoryplus()" class="Button Black"></td>
+            <td align="center"><input type="button" value="M-" id="M-" onclick="memoryminus()" class="Button Black"></td>
+            <td align="center"><input type="button" value="M×" id="M*" onclick="memorytimes()" class="Button Black"></td>
+            <td align="center"><input type="button" value="MR" id="MR" onclick="memoryread()" class="Button Black"></td>
+            <td align="center"><input type="button" value="MC" id="MC" onclick="memoryclear()" class="Button Black"></td>
+        </tr>
+        <tr height="70px">
+            <td align="center"><input type="button" value="7" id="7" onclick="onclicknum(7)" class="Button Blue"></td>
+            <td align="center"><input type="button" value="8" id="8" onclick="onclicknum(8)" class="Button Blue"></td>
+            <td align="center"><input type="button" value="9" id="9" onclick="onclicknum(9)" class="Button Blue"></td>
+            <td align="center"><input type="button" value="C" id="clear" onclick="onclickclear()" class="Button Red"/></td>
+            <td align="center"><input type="button" value="AC" id="allclear" onclick="allclear()" class="Button Red"/></td>
+        </tr>
+        <tr height="70px">
+            <td align="center"><input type="button" value="4" id="4" onclick="onclicknum(4)" class="Button Blue"></td>
+            <td align="center"><input type="button" value="5" id="5" onclick="onclicknum(5)" class="Button Blue"></td>
+            <td align="center"><input type="button" value="6" id="6" onclick="onclicknum(6)" class="Button Blue"></td>
+            <td align="center"><input type="button" value="×" id="mul" onclick="onclicknum('*')" class="Button Green"></td>
+            <td align="center"><input type="button" value="÷" id="division" onclick="onclicknum('/')" class="Button Green"></td>
+        </tr>
+        <tr height="70px">
+            <td align="center"><input type="button" value="1" id="1" onclick="onclicknum(1)" class="Button Blue"></td>
+            <td align="center"><input type="button" value="2" id="2" onclick="onclicknum(2)" class="Button Blue"></td>
+            <td align="center"><input type="button" value="3" id="3" onclick="onclicknum(3)" class="Button Blue"></td>
+            <td align="center"><input type="button" value="+" id="add" onclick="onclicknum('+')" class="Button Green"></td>
+            <td align="center"><input type="button" value="-" id="sub" onclick="onclicknum('-')" class="Button Green"></td>
+        </tr>
+        <tr height="70px">
+            <td colspan="2" align="center"><input type="button" value="0" id="0" onclick="onclicknum(0)" class="Button Blue" style="width: 245px"></td>
+            <td align="center"><input type="button" value="." id="point" onclick="onclicknum('.')" class="Button Blue"></td>
+            <td colspan="2" align="center"><input type="button" value="=" id="result" onclick="onclickresult()" class="Button Green" style="width: 245px"/></td>
+        </tr>
+    </table>
+</body>
+</html>
