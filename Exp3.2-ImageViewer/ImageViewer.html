@@ -38,8 +38,8 @@
     <div id="actionzone" align="center" style="margin: 10px;">
         <span id="selectimage" style="margin: 10px;">
             <input type="button" class="Button" value="第一张" id="page1">
-            <input type="button" class="Button" value="上一张" id="page-">
-            <input type="button" class="Button" value="下一张" id="page+">
+            <input type="button" class="Button" value="上一张" id="pagep">
+            <input type="button" class="Button" value="下一张" id="pagen">
             <input type="button" class="Button" value="最后一张" id="pagel">
         </span>
         <span id="imageedit" style="margin: 10px;">
@@ -54,6 +54,22 @@
         })
         $("#pagel").click(function () {
             $("#currentimage").attr("src", "img/4.png");
+        })
+        $("#pagen").click(function () {
+            var string = $("#currentimage").attr("src").substring(4);
+            var i = parseInt(string);
+            i++;
+            if (i > 4)
+                i = 1;
+            $("#currentimage").attr("src", "img/"+String(i)+".png");
+        })
+        $("#pagep").click(function () {
+            var string = $("#currentimage").attr("src").substring(4);
+            var i = parseInt(string);
+            i--;
+            if (i < 1)
+                i = 4;
+            $("#currentimage").attr("src", "img/" + String(i) + ".png");
         })
         $("#magnify").click(function () {
             var width = parseInt($("#currentimage").attr("width"));

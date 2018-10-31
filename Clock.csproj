@@ -67,13 +67,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Calculator\Calculator.html" />
-    <Content Include="Clock\Clock.html" />
-    <Content Include="ImageViewer\img\1.png" />
-    <Content Include="ImageViewer\img\2.png" />
-    <Content Include="ImageViewer\img\3.png" />
-    <Content Include="ImageViewer\img\4.png" />
-    <Content Include="ImageViewer\ImageViewer.html" />
+    <Content Include="Exp3.1-Calculator\Calculator.html" />
+    <Content Include="Exp2-Clock\Clock.html" />
+    <Content Include="Exp3.2-ImageViewer\img\1.png" />
+    <Content Include="Exp3.2-ImageViewer\img\2.png" />
+    <Content Include="Exp3.2-ImageViewer\img\3.png" />
+    <Content Include="Exp3.2-ImageViewer\img\4.png" />
+    <Content Include="Exp3.2-ImageViewer\ImageViewer.html" />
     <Content Include="jquery-3.3.1.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
