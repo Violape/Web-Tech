@@ -74,6 +74,8 @@
     <Content Include="Exp3.2-ImageViewer\img\3.png" />
     <Content Include="Exp3.2-ImageViewer\img\4.png" />
     <Content Include="Exp3.2-ImageViewer\ImageViewer.html" />
+    <Content Include="Exp4-XML\xmlpage.xml" />
+    <Content Include="Exp4-XML\xmlstyle.css" />
     <Content Include="jquery-3.3.1.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>

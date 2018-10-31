@@ -1,0 +1,68 @@
+﻿paper {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 160%;
+    text-align: center
+}
+author {
+    display: block;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 5px;
+}
+address {
+    display: block;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center
+}
+abstract{
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: left;
+    margin: 10px;
+}
+abstractcontent {
+    display: block;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 150%;
+    text-align: left;
+    margin: 10px;
+}
+keywords {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: left;
+    margin: 10px
+}
+keywordscontent {
+    display: block;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 150%;
+    text-align: left;
+    margin: 10px
+}
+head {
+    display: block;
+    font-size: 20px;
+    line-height: 150%;
+    margin: 10px;
+}
+text {
+    display: block;
+    font-size: 18px;
+    font-weight: normal;
+    text-align: left;
+    text-indent: 36px;
+    line-height: 150%;
+    margin: 10px;
+}

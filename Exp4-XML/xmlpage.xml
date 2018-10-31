@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/css" href="xmlstyle.css"?>
+<paper xmlns:HTML="http://www.w3.org/1999/xhtml">
+  <title>E-learning中的个性化技术研究</title>
+  <author>Hao Xingwei</author>
+  <address>(Shandong University, School of Computer Science and Technology, Jinan, 250100)</address>
+  <abstract>Abstract</abstract>
+  <abstractcontent>E-learning is now becoming a very important means in modern education, but the existing E-learning systems are short of pernonalization the model of teaching is so simple that the procedures of learining are almost the same. How to build a personalization learning circumstance ...</abstractcontent>
+  <keywords>Keywords</keywords>
+  <keywordscontent>E-learning, Knowledge point, Personalized service, Web discovery</keywordscontent>
+  <head>0.前言</head>
+  <text>E-learning是指基于网络的、电子化、数字化、多媒体的教学方式。在实际应用中，E-learning的范畴非常广泛，它不仅包含基于互联网的网络化学习，还包括了基于多媒体资料的数字化学习。随着Internet的快速发展和普及，以及教育的全球化和由此带来的教育竞争的加剧，基于Web的E-learning系统已经成为许多大学和教育机构实施现代化远程教育的重要手段。</text>
+</paper>
