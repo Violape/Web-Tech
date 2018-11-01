@@ -74,12 +74,22 @@
     <Content Include="Exp3.2-ImageViewer\img\3.png" />
     <Content Include="Exp3.2-ImageViewer\img\4.png" />
     <Content Include="Exp3.2-ImageViewer\ImageViewer.html" />
-    <Content Include="Exp4-XML\xmlpage.xml" />
+    <Content Include="Exp4-XML\xmlpage.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Exp4-XML\xmlstyle.css" />
+    <Content Include="Exp5-Gridview\Gridview.aspx" />
     <Content Include="jquery-3.3.1.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exp5-Gridview\Gridview.aspx.cs">
+      <DependentUpon>Gridview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exp5-Gridview\Gridview.aspx.designer.cs">
+      <DependentUpon>Gridview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
