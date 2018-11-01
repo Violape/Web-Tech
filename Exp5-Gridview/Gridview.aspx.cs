@@ -13,15 +13,38 @@ namespace Clock.Exp5_Gridview
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ;
+            SqlConnection con = new SqlConnection("Server=localhost; Initial Catalog=Studentinfo; Trusted_Connection=yes");
+            con.Open();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM xsmd", con);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            this.Studentinfo.DataSource = ds.Tables[0];
+            this.Studentinfo.DataBind();
+            con.Close();
         }
         protected void Searchbyid(object sender, EventArgs e)
         {
-            ;
+            SqlConnection con = new SqlConnection("Server=localhost; Initial Catalog=Studentinfo; Trusted_Connection=yes");
+            con.Open();
+            //new SqlCommand("SELECT * FROM xsmd WHERE stu_id='20160001'", cn).ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM xsmd WHERE stu_id='"+ this.searchbyid.Text + "'" , con);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            this.Studentinfo.DataSource = ds.Tables[0];
+            this.Studentinfo.DataBind();
+            con.Close();
         }
         protected void Searchbyname(object sender, EventArgs e)
         {
-            ;
+            SqlConnection con = new SqlConnection("Server=localhost; Initial Catalog=Studentinfo; Trusted_Connection=yes");
+            con.Open();
+            //new SqlCommand("SELECT * FROM xsmd WHERE stu_id='20160001'", cn).ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM xsmd WHERE stu_name='" + this.searchbyname.Text + "'", con);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            this.Studentinfo.DataSource = ds.Tables[0];
+            this.Studentinfo.DataBind();
+            con.Close();
         }
     }
 }
