@@ -36,8 +36,23 @@
                     </InsertParameters>
                 </asp:SqlDataSource>
                 <br />
-                <asp:GridView ID="Studentinfo" runat="server">
-
+                <asp:GridView ID="Studentinfo" runat="server"
+                    AllowPaging="true" AutoGenerateColumns="true" CellPadding="6" DataKeyNames="stu_id" DataSourceID="SqlDataSource1"
+                    Font-Size="Medium" ForeColor="#333333" GridLines="None" PageSize="20">
+                    <FooterStyle BackColor="#990000" Font-Bold="true" ForeColor="White"/>
+                    <Columns>
+                        <asp:CommandField ShowEditButton = "true" />
+                        <asp:BoundField DataField="stu_name" HeaderText="姓名" ReadOnly="true" SortExpression="stu_name" />
+                        <asp:BoundField DataField="stu_id" HeaderText="学号" ReadOnly="true" SortExpression="stu_id" />
+                        <asp:BoundField DataField="stu_gender" HeaderText="性别" ReadOnly="true" SortExpression="stu_gender" />
+                        <asp:BoundField DataField="stu_faculty" HeaderText="专业" ReadOnly="true" SortExpression="stu_faculty" />
+                        <asp:BoundField DataField="stu_class" HeaderText="班级" ReadOnly="true" SortExpression="stu_class" />
+                    </Columns>
+                    <RowStyle BackColor="#FFFBD6" ForeColor="#333333"/>
+                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="true" ForeColor="Navy" />
+                    <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                    <HeaderStyle BackColor="#990000" Font-Bold="true" ForeColor="White" />
+                    <AlternatingRowStyle BackColor="White"/>
                 </asp:GridView>
                 <br />
             </fieldset>
