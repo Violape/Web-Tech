@@ -50,11 +50,21 @@
                     <AlternatingRowStyle BackColor="White"/>
                 </asp:GridView>
                 <br />
+                按学号查询：
                 <asp:TextBox runat="server" ID="searchbyid"></asp:TextBox>
                 <asp:Button runat="server" Text="按学号查询" OnClick="Searchbyid"/>
                 <br />
+                按姓名查询：
                 <asp:TextBox runat="server" ID="searchbyname"></asp:TextBox>
                 <asp:Button runat="server" Text="按姓名查询" OnClick="Searchbyname"/>
+                <br />
+                插入条目（姓名，学号，性别，学院，班级）：
+                <asp:TextBox runat="server" ID="insertname"></asp:TextBox>
+                <asp:TextBox runat="server" ID="insertid"></asp:TextBox>
+                <asp:TextBox runat="server" ID="insertgender"></asp:TextBox>
+                <asp:TextBox runat="server" ID="insertfaculty"></asp:TextBox>
+                <asp:TextBox runat="server" ID="insertclass"></asp:TextBox>
+                <asp:Button runat="server" Text="添加条目" OnClick="Insert"/>
             </fieldset>
         </div>
     </form>

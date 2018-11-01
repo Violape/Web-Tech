@@ -46,5 +46,19 @@ namespace Clock.Exp5_Gridview
             this.Studentinfo.DataBind();
             con.Close();
         }
+        protected void Insert(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection("Server=localhost; Initial Catalog=Studentinfo; Trusted_Connection=yes");
+            con.Open();
+            new SqlCommand("INSERT INTO xsmd VALUES ('" + this.insertname.Text + "', '"+ this.insertid.Text +
+                "', '" + this.insertgender.Text + "', '" + this.insertfaculty.Text + "', '" +
+                this.insertclass.Text +"')", con).ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM xsmd", con);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            this.Studentinfo.DataSource = ds.Tables[0];
+            this.Studentinfo.DataBind();
+            con.Close();
+        }
     }
 }
