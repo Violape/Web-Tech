@@ -36,7 +36,7 @@
                     Font-Size="Medium" ForeColor="#333333" GridLines="None" PageSize="20" AllowSorting="True" Width="90%">
                     <FooterStyle BackColor="#990000" Font-Bold="true" ForeColor="White"/>
                     <Columns>
-                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" ItemStyle-Width="15%"/>
+                        <asp:CommandField ShowSelectButton="True" ItemStyle-Width="15%"/>
                         <asp:BoundField DataField="stu_name" HeaderText="姓名" ItemStyle-Width="15%"/>
                         <asp:BoundField DataField="stu_id" Readonly="true" HeaderText="学号" SortExpression="stu_id" ItemStyle-Width="10%"/>
                         <asp:BoundField DataField="stu_gender" HeaderText="性别" SortExpression="stu_gender" ItemStyle-Width="10%"/>
@@ -51,20 +51,36 @@
                 </asp:GridView>
                 <br />
                 按学号查询：
-                <asp:TextBox runat="server" ID="searchbyid"></asp:TextBox>
+                <asp:TextBox runat="server" ID="searchbyid" Width="12%"></asp:TextBox>
                 <asp:Button runat="server" Text="按学号查询" OnClick="Searchbyid"/>
                 <br />
                 按姓名查询：
-                <asp:TextBox runat="server" ID="searchbyname"></asp:TextBox>
+                <asp:TextBox runat="server" ID="searchbyname" Width="12%"></asp:TextBox>
                 <asp:Button runat="server" Text="按姓名查询" OnClick="Searchbyname"/>
                 <br />
-                插入条目（姓名，学号，性别，学院，班级）：
-                <asp:TextBox runat="server" ID="insertname"></asp:TextBox>
-                <asp:TextBox runat="server" ID="insertid"></asp:TextBox>
-                <asp:TextBox runat="server" ID="insertgender"></asp:TextBox>
-                <asp:TextBox runat="server" ID="insertfaculty"></asp:TextBox>
-                <asp:TextBox runat="server" ID="insertclass"></asp:TextBox>
+                按学号删除：
+                <asp:TextBox runat="server" ID="deletebyID" Width="12%"></asp:TextBox>
+                <asp:Button runat="server" Text="按学号删除" OnClick="Deletebyid"/>
+                <asp:Label runat="server" ID="deleteresult"></asp:Label>
+                <br />
+                添加条目（姓名，学号，性别，学院，班级）：
+                <asp:TextBox runat="server" ID="insertname" Width="8%"></asp:TextBox>
+                <asp:TextBox runat="server" ID="insertid" Width="6%"></asp:TextBox>
+                <asp:TextBox runat="server" ID="insertgender" Width="6%"></asp:TextBox>
+                <asp:TextBox runat="server" ID="insertfaculty" Width="12%"></asp:TextBox>
+                <asp:TextBox runat="server" ID="insertclass" Width="12%"></asp:TextBox>
                 <asp:Button runat="server" Text="添加条目" OnClick="Insert"/>
+                <asp:Label runat="server" ID="insertresult"></asp:Label>
+                <br />
+                更改条目（姓名，学号，性别，学院，班级）：
+                <asp:TextBox runat="server" ID="editname" Width="8%"></asp:TextBox>
+                <asp:TextBox runat="server" ID="editid" Width="6%"></asp:TextBox>
+                <asp:TextBox runat="server" ID="editgender" Width="6%"></asp:TextBox>
+                <asp:TextBox runat="server" ID="editfaculty" Width="12%"></asp:TextBox>
+                <asp:TextBox runat="server" ID="editclass" Width="12%"></asp:TextBox>
+                <asp:Button runat="server" Text="更改条目" OnClick="Edit"/>
+                <asp:Label runat="server" ID="editresult"></asp:Label>
+                <br />
             </fieldset>
         </div>
     </form>
