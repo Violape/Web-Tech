@@ -7,7 +7,7 @@
         var vXMLHttpRequest;
         function SearchSublist(str) {
             //confirm content vaildity
-            if (str == "")
+            if (str == null)
                 return;
             //generate request based on different browsers
             if (window.XMLHttpRequest) {
@@ -34,8 +34,15 @@
             //check status and callback
             vXMLHttpRequest.onreadystatechange = function () {
                 if (vXMLHttpRequest.readyState == 4 && vXMLHttpRequest.status == 200) {
-                    var s = vXMLHttpRequest.responseText;
-                    city.innerHTML = s;
+                    if (str.length == 2) {
+                        var s = "<option value = \"0000\" selected=\"selected\"> --- 请选择城市 --- </option>" + vXMLHttpRequest.responseText;
+                        city.innerHTML = s;
+                        county.innerHTML = "<option value = \"000000\" selected=\"selected\"> --- 请选择区县 --- </option>";
+                    }
+                    else if (str.length == 4) {
+                        var s = "<option value = \"000000\" selected=\"selected\"> --- 请选择区县 --- </option>" + vXMLHttpRequest.responseText;
+                        county.innerHTML = s;
+                    }
                 }
             }
             //open url base on given string
@@ -47,22 +54,24 @@
 </head>
 <body>
     <form id="optionlist" action="" style="margin: 15px;">
-        <label>
+        <div style="margin: 15px;">中国行政区划省市县三级联动查询</div>
+        <label style="margin: 15px;">
             请选择省/市/区县：
             <select id="province" onchange="SearchSublist(this.value)">
-                <option value="00">---请选择省份---</option>
+                <option value="00" selected="selected"> --- 请选择省份 --- </option>
                 <option value="11">北京市</option>
                 <option value="12">天津市</option>
                 <option value="13">河北省</option>
                 <option value="14">山西省</option>
             </select>
             <select id="city" onchange="SearchSublist(this.value)">
-                <option value="0000">---请选择城市---</option>
+                <option value="0000" selected="selected"> --- 请选择城市 --- </option>
             </select>
             <select id="county" onchange="SearchSublist(this.value)">
-                <option value="000000">---请选择区县---</option>
+                <option value="000000" selected="selected"> --- 请选择区县 --- </option>
             </select>
         </label>
+        <div style="margin: 15px;">注：港澳台地区数据暂缺。</div>
     </form>
     <br />
 </body>

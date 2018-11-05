@@ -19,16 +19,45 @@ namespace Clock.Exp6_OptionConnection
             con.Open();
             //set query string
             string id = Request.QueryString["id"];
-            string sql = "SELECT DISTINCT city, cityid FROM Countydata WHERE provinceid = '" + id + "' ORDER BY cityid";
-            //handle dataset
-            SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            //generate html stream
-            foreach (DataRow dataRow in dt.Rows)
+            if (id == null)
+                return;
+            if (id.Length == 2)
             {
-                Response.Write("<option value=\""+ dataRow["city"] + "\">" 
-                    + dataRow["city"] +"</option>");
+                if (id == "00")
+                {
+                    Response.Write("");
+                    return;
+                }
+                string sql = "SELECT DISTINCT city, cityid FROM Countydata WHERE provinceid = '" + id + "' ORDER BY cityid";
+                //handle dataset
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                //generate html stream
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    Response.Write("<option value=\"" + dataRow["cityid"] + "\">"
+                        + dataRow["city"] + "</option>");
+                }
+            }
+            else if (id.Length == 4)
+            {
+                if (id == "0000")
+                {
+                    Response.Write("");
+                    return;
+                }
+                string sql = "SELECT DISTINCT county, countyid FROM Countydata WHERE cityid = '" + id + "' ORDER BY countyid";
+                //handle dataset
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                //generate html stream
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    Response.Write("<option value=\"" + dataRow["countyid"] + "\">"
+                        + dataRow["county"] + "</option>");
+                }
             }
             //write into response html
             con.Close();
