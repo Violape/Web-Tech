@@ -34,7 +34,13 @@
             //check status and callback
             vXMLHttpRequest.onreadystatechange = function () {
                 if (vXMLHttpRequest.readyState == 4 && vXMLHttpRequest.status == 200) {
-                    if (str.length == 2) {
+                    if (str == "1") {
+                        var s = "<option value = \"00\" selected=\"selected\"> --- 请选择省份 --- </option>" + vXMLHttpRequest.responseText;
+                        province.innerHTML = s;
+                        city.innerHTML = "<option value = \"0000\" selected=\"selected\"> --- 请选择城市 --- </option>";
+                        county.innerHTML = "<option value = \"000000\" selected=\"selected\"> --- 请选择区县 --- </option>";
+                    }
+                    else if (str.length == 2) {
                         var s = "<option value = \"0000\" selected=\"selected\"> --- 请选择城市 --- </option>" + vXMLHttpRequest.responseText;
                         city.innerHTML = s;
                         county.innerHTML = "<option value = \"000000\" selected=\"selected\"> --- 请选择区县 --- </option>";
@@ -50,6 +56,8 @@
             //send message
             vXMLHttpRequest.send(null);
         }
+        //预加载，查询所有的省，查询key为1
+        SearchSublist("1");
     </script>
 </head>
 <body>
@@ -58,17 +66,13 @@
         <label style="margin: 15px;">
             请选择省/市/区县：
             <select id="province" onchange="SearchSublist(this.value)">
-                <option value="00" selected="selected"> --- 请选择省份 --- </option>
-                <option value="11">北京市</option>
-                <option value="12">天津市</option>
-                <option value="13">河北省</option>
-                <option value="14">山西省</option>
+                <option value="00" selected="selected"> 加载中... </option>
             </select>
             <select id="city" onchange="SearchSublist(this.value)">
-                <option value="0000" selected="selected"> --- 请选择城市 --- </option>
+                <option value="0000" selected="selected"> 加载中... </option>
             </select>
             <select id="county" onchange="SearchSublist(this.value)">
-                <option value="000000" selected="selected"> --- 请选择区县 --- </option>
+                <option value="000000" selected="selected"> 加载中... </option>
             </select>
         </label>
         <div style="margin: 15px;">注：港澳台地区数据暂缺。</div>

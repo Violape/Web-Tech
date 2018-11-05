@@ -20,8 +20,25 @@ namespace Clock.Exp6_OptionConnection
             //set query string
             string id = Request.QueryString["id"];
             if (id == null)
+            {
+                con.Close();
                 return;
-            if (id.Length == 2)
+            }
+            else if(id == "1")
+            {
+                string sql = "SELECT DISTINCT province, provinceid FROM Countydata ORDER BY provinceid";
+                //handle dataset
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                //generate html stream
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    Response.Write("<option value=\"" + dataRow["provinceid"] + "\">"
+                        + dataRow["province"] + "</option>");
+                }
+            }
+            else if (id.Length == 2)
             {
                 if (id == "00")
                 {
