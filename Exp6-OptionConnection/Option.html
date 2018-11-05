@@ -33,17 +33,37 @@
             }
             //check status and callback
             vXMLHttpRequest.onreadystatechange = function () {
-                if (vXMLHttpRequest.readyState == 4 && vXMLHttpRequest.status == 200)
-                /// output callback
-            };
+                if (vXMLHttpRequest.readyState == 4 && vXMLHttpRequest.status == 200) {
+                    var s = vXMLHttpRequest.responseText;
+                    city.innerHTML = s;
+                }
+            }
             //open url base on given string
-            vXMLHttpRequest.open("GET", "getsublist.aspx?id=" + str);
+            vXMLHttpRequest.open("GET", "GetSublist.aspx?id=" + str);
             //send message
             vXMLHttpRequest.send(null);
         }
     </script>
 </head>
 <body>
-
+    <form id="optionlist" action="" style="margin: 15px;">
+        <label>
+            请选择省/市/区县：
+            <select id="province" onchange="SearchSublist(this.value)">
+                <option value="00">---请选择省份---</option>
+                <option value="11">北京市</option>
+                <option value="12">天津市</option>
+                <option value="13">河北省</option>
+                <option value="14">山西省</option>
+            </select>
+            <select id="city" onchange="SearchSublist(this.value)">
+                <option value="0000">---请选择城市---</option>
+            </select>
+            <select id="county" onchange="SearchSublist(this.value)">
+                <option value="000000">---请选择区县---</option>
+            </select>
+        </label>
+    </form>
+    <br />
 </body>
 </html>

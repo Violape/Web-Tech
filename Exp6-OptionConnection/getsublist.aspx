@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="getsublist.aspx.cs" Inherits="Clock.Exp6_OptionConnection.getsublist" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GetSublist.aspx.cs" Inherits="Clock.Exp6_OptionConnection.GetSublist" %>
 
 <!DOCTYPE html>
 
@@ -10,6 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+
         </div>
     </form>
 </body>

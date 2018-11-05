@@ -10,7 +10,7 @@
 namespace Clock.Exp6_OptionConnection {
     
     
-    public partial class getsublist {
+    public partial class GetSublist {
         
         /// <summary>
         /// form1 控件。
