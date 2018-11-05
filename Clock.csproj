@@ -79,6 +79,7 @@
     </Content>
     <Content Include="Exp4-XML\xmlstyle.css" />
     <Content Include="Exp5-Gridview\Gridview.aspx" />
+    <Content Include="Exp6-OptionConnection\OptionConnection.aspx" />
     <Content Include="jquery-3.3.1.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -91,6 +92,13 @@
     </Compile>
     <Compile Include="Exp5-Gridview\Gridview.aspx.designer.cs">
       <DependentUpon>Gridview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Exp6-OptionConnection\OptionConnection.aspx.cs">
+      <DependentUpon>OptionConnection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exp6-OptionConnection\OptionConnection.aspx.designer.cs">
+      <DependentUpon>OptionConnection.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
