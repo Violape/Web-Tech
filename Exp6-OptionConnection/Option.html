@@ -62,20 +62,20 @@
 </head>
 <body>
     <form id="optionlist" action="" style="margin: 15px;">
-        <div style="margin: 15px;">中国行政区划省市县三级联动查询</div>
-        <label style="margin: 15px;">
+        <div style="margin: 15px; font-weight: bold; text-align: center; font-size: 20px;">中国行政区划省市县三级联动查询</div>
+        <div style="margin: 15px; text-align: center">
             请选择省/市/区县：
-            <select id="province" onchange="SearchSublist(this.value)">
+            <select id="province" onchange="SearchSublist(this.value)" style="width: 15%; text-align:center">
                 <option value="00" selected="selected"> 加载中... </option>
             </select>
-            <select id="city" onchange="SearchSublist(this.value)">
+            <select id="city" onchange="SearchSublist(this.value)" style="width: 15%; text-align:center">
                 <option value="0000" selected="selected"> 加载中... </option>
             </select>
-            <select id="county" onchange="SearchSublist(this.value)">
+            <select id="county" onchange="SearchSublist(this.value)" style="width: 15%; text-align:center">
                 <option value="000000" selected="selected"> 加载中... </option>
             </select>
-        </label>
-        <div style="margin: 15px;">注：港澳台地区数据暂缺。</div>
+        </div>
+        <div style="margin: 15px; text-align: center;">注：港澳台地区数据暂缺。</div>
     </form>
     <br />
 </body>
