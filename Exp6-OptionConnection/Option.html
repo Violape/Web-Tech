@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Option Connection</title>
+    <script language="javascript">
+        var vXMLHttpRequest;
+        function SearchSublist(str) {
+            //confirm content vaildity
+            if (str == "")
+                return;
+            //generate request based on different browsers
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                vXMLHttpRequest = new XMLHttpRequest();
+                if (vXMLHttpRequest.overrideMimeType) {
+                    vXMLHttpRequest.overrideMimeType("text/xml");
+                }
+            }
+            else if (window.ActiveXObject) {
+                // code for IE6, IE5
+                try {
+                    vXMLHttpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+                }
+                catch (e) {
+                    vXMLHttpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+            }
+            //confirm request built successfully
+            if (!vXMLHttpRequest) {
+                window.alert("Browser not support HTMLHttpRequest!");
+                return;
+            }
+            //check status and callback
+            vXMLHttpRequest.onreadystatechange = function () {
+                if (vXMLHttpRequest.readyState == 4 && vXMLHttpRequest.status == 200)
+                /// output callback
+            };
+            //open url base on given string
+            vXMLHttpRequest.open("GET", "getsublist.aspx?id=" + str);
+            //send message
+            vXMLHttpRequest.send(null);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
