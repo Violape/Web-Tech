@@ -1,99 +1,123 @@
-﻿<!DOCTYPE html>
+﻿<!-- Chongqing Univercity Web development experiment 3 part 1 - sample code -->
+<!-- Calculator.html written by Violape -->
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="content-type" content="text/html; charset=UTF-8">
     <title>Calculator</title>
+    <!-- CSS 样式设置 -->
     <style>
         .Button {
-            border: none;
-            color: white;
+            color: white; /*文字设为白色*/
             width: 120px;
             height: 60px;
-            text-align: center;
+            text-align: center; /*文字居中*/
             text-decoration: none;
             display: inline-block;
             font-size: 36px;
-            border-radius: 10%;
-            transition-duration: 0.4s;
+            border-radius: 10%; /*圆角矩形*/
+            transition-duration: 0.4s; /*渐变动画*/
         }
+            /*以下子类定义不同颜色的按钮*/
             .Button.Blue {
                 background-color: #0055aa;
                 border: 5px solid #0055aa;
             }
+
             .Button.Black {
                 background-color: #555555;
                 border: 5px solid #555555;
             }
+
             .Button.Red {
                 background-color: #aa0000;
                 border: 5px solid #aa0000;
             }
+
             .Button.Green {
                 background-color: #00aa55;
                 border: 5px solid #00aa55;
             }
+            /*以下子类定义指向按钮时的样式，背景变为白色，出现阴影*/
             .Button:hover {
                 background-color: #ffffff;
                 color: black;
                 box-shadow: 0 9px #999;
             }
+            /*以下子类定义点击按钮时的样式，出现阴影，按钮下移后弹起*/
             .Button:active {
                 box-shadow: 0 5px #666;
                 transform: translateY(4px);
             }
     </style>
+    <!-- 设置点击不同按钮时执行的代码 -->
     <script type="text/javascript">
         var numresult;
-        var memory = 0;
+        var memory = 0; //存储区数字
         function onclicknum(nums) {
+            //点击数字和运算符号，显示在屏幕上
             str = document.getElementById("nummessege");
+            //如果首次输入则将默认的"0"值先消去
             if (str.value == "0")
                 str.value = nums;
             else
                 str.value = str.value + nums;
         }
         function onclickclear() {
+            //点击清空按钮，屏幕清零
             str = document.getElementById("nummessege");
             str.value = "0";
         }
         function allclear() {
+            //点击全部清空按钮，屏幕清零，存储数清零
             onclickclear();
             memoryclear();
         }
         function onclickresult() {
+            //点击等于按钮，计算算式并将结果输出到屏幕上
             str = document.getElementById("nummessege");
             numresult = eval(str.value);
             str.value = numresult;
         }
+        //点击存储数操作按钮，执行存储数运算
         function memoryplus() {
+            //如运算式未计算结果，先计算结果
             onclickresult();
             str = document.getElementById("nummessege");
+            //var类型变量的加运算不是常规的数字加法运算，因此采用减负数的形式实现
             memory -= -str.value;
         }
         function memoryminus() {
+            //如运算式未计算结果，先计算结果
             onclickresult();
             str = document.getElementById("nummessege");
             memory -= str.value;
         }
         function memorytimes() {
+            //如运算式未计算结果，先计算结果
             onclickresult();
             str = document.getElementById("nummessege");
             memory *= str.value;
         }
         function memoryread() {
+            //读取存储数
             str = document.getElementById("nummessege");
             str.value = memory;
         }
         function memoryclear() {
+            //清零存储数
             memory = 0;
         }
     </script>
 </head>
 <body>
+    <!-- 以表格形式展示计算器 -->
     <table border="0" align="center">
         <tr>
-            <td colspan="5"><input type="text" id="nummessege" style="font-size: 50px; text-align: right" readonly="readonly" value="0"/></td>
+            <!-- 结果显示屏，初始值为0 -->
+            <td colspan="5"><input type="text" id="nummessege" style="font-size: 50px; text-align: right" readonly="readonly" value="0" /></td>
         </tr>
+        <!-- 其余部分为操作按钮 -->
         <tr height="70px">
             <td align="center"><input type="button" value="M+" id="M+" onclick="memoryplus()" class="Button Black"></td>
             <td align="center"><input type="button" value="M-" id="M-" onclick="memoryminus()" class="Button Black"></td>
@@ -105,8 +129,8 @@
             <td align="center"><input type="button" value="7" id="7" onclick="onclicknum(7)" class="Button Blue"></td>
             <td align="center"><input type="button" value="8" id="8" onclick="onclicknum(8)" class="Button Blue"></td>
             <td align="center"><input type="button" value="9" id="9" onclick="onclicknum(9)" class="Button Blue"></td>
-            <td align="center"><input type="button" value="C" id="clear" onclick="onclickclear()" class="Button Red"/></td>
-            <td align="center"><input type="button" value="AC" id="allclear" onclick="allclear()" class="Button Red"/></td>
+            <td align="center"><input type="button" value="C" id="clear" onclick="onclickclear()" class="Button Red" /></td>
+            <td align="center"><input type="button" value="AC" id="allclear" onclick="allclear()" class="Button Red" /></td>
         </tr>
         <tr height="70px">
             <td align="center"><input type="button" value="4" id="4" onclick="onclicknum(4)" class="Button Blue"></td>
@@ -125,7 +149,7 @@
         <tr height="70px">
             <td colspan="2" align="center"><input type="button" value="0" id="0" onclick="onclicknum(0)" class="Button Blue" style="width: 245px"></td>
             <td align="center"><input type="button" value="." id="point" onclick="onclicknum('.')" class="Button Blue"></td>
-            <td colspan="2" align="center"><input type="button" value="=" id="result" onclick="onclickresult()" class="Button Green" style="width: 245px"/></td>
+            <td colspan="2" align="center"><input type="button" value="=" id="result" onclick="onclickresult()" class="Button Green" style="width: 245px" /></td>
         </tr>
     </table>
 </body>
