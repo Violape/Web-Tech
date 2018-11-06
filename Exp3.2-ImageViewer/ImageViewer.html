@@ -1,9 +1,14 @@
-﻿<!DOCTYPE html>
+﻿<!-- Chongqing Univercity Web development experiment 3 part 2 - image viewer -->
+<!-- ImageViewer.html written by Violape -->
+<!-- img/ folder used to store images. All images are of size of 400*300, named as 1.png, 2.png, ..., etc.-->
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>Image Viewer</title>
+    <!-- 导入jquery文件 -->
     <script src="../jquery-3.3.1.min.js"></script>
+    <!-- CSS样式设置，同计算器相同 -->
     <style>
         .Button {
             background-color: #0055aa;
@@ -18,13 +23,11 @@
             border-radius: 10%;
             transition-duration: 0.4s;
         }
-
             .Button:hover {
                 background-color: #ffffff;
                 color: black;
                 box-shadow: 0 9px #999;
             }
-
             .Button:active {
                 box-shadow: 0 5px #666;
                 transform: translateY(4px);
@@ -32,16 +35,20 @@
     </style>
 </head>
 <body>
+    <!-- 图片显示区，默认显示1.png文件 -->
     <div id="imagebox" style="width: 100%; height: 610px; border: 2pt solid black">
         <img style="position:absolute; top:50%; left:50%; transform:translateX(-50%) translateY(-50%)" id="currentimage" src="img/1.png" height="300" width="400" />
     </div>
+    <!-- 操作区，点击按钮执行指定操作 -->
     <div id="actionzone" align="center" style="margin: 10px;">
+        <!-- 选择图片按钮：第一张/最后一张/上一张/下一张 -->
         <span id="selectimage" style="margin: 10px;">
             <input type="button" class="Button" value="第一张" id="page1">
             <input type="button" class="Button" value="上一张" id="pagep">
             <input type="button" class="Button" value="下一张" id="pagen">
             <input type="button" class="Button" value="最后一张" id="pagel">
         </span>
+        <!-- 图片操作：放大/缩小/恢复 -->
         <span id="imageedit" style="margin: 10px;">
             <input type="button" class="Button" value="放大" id="magnify">
             <input type="button" class="Button" value="缩小" id="deflate">
@@ -49,49 +56,63 @@
         </span>
     </div>
     <script type="text/javascript">
+        //使用jquery更改图片内容
+        //显示第一张图片
         $("#page1").click(function () {
             $("#currentimage").attr("src", "img/1.png");
         })
+        //显示最后一张图片
         $("#pagel").click(function () {
             $("#currentimage").attr("src", "img/4.png");
         })
+        //显示前一张图片
         $("#pagen").click(function () {
             var string = $("#currentimage").attr("src").substring(4);
             var i = parseInt(string);
             i++;
+            //循环展示图片
             if (i > 4)
                 i = 1;
-            $("#currentimage").attr("src", "img/"+String(i)+".png");
+            $("#currentimage").attr("src", "img/" + String(i) + ".png");
         })
+        //显示后一张图片
         $("#pagep").click(function () {
             var string = $("#currentimage").attr("src").substring(4);
             var i = parseInt(string);
             i--;
+            //循环展示图片
             if (i < 1)
                 i = 4;
             $("#currentimage").attr("src", "img/" + String(i) + ".png");
         })
+        //放大图片
         $("#magnify").click(function () {
             var width = parseInt($("#currentimage").attr("width"));
+            //图片不可超过显示区的边界
             if (width < 760)
                 width += 40;
             $("#currentimage").attr("width", String(width));
             var height = parseInt($("#currentimage").attr("height"));
+            //图片不可超过显示区的边界
             if (height < 570)
                 height += 30;
             $("#currentimage").attr("height", String(height));
         })
+        //缩小图片
         $("#deflate").click(function () {
+            //图片长不可小于0
             var width = parseInt($("#currentimage").attr("width"));
             if (width > 40)
                 width -= 40;
             $("#currentimage").attr("width", String(width));
+            //图片宽不可小于0
             var height = parseInt($("#currentimage").attr("height"));
             if (height > 30)
                 height -= 30;
             $("#currentimage").attr("height", String(height));
 
         })
+        //恢复原尺寸
         $("#original").click(function () {
             $("#currentimage").attr("height", "300");
             $("#currentimage").attr("width", "400");
