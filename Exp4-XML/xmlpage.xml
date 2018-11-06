@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Chongqing Univercity Web development experiment 4 - xml -->
+<!-- xmlpage.xml written by Violape -->
+<!-- xmlstyle.css used to describe the style of contents-->
+<!-- 从xmlstyle.css文件中读取样式列表 -->
 <?xml-stylesheet type="text/css" href="xmlstyle.css"?>
+<!-- 文字内容 -->
 <paper xmlns:HTML="http://www.w3.org/1999/xhtml">
   <title>E-learning中的个性化技术研究</title>
   <author>Hao Xingwei</author>
