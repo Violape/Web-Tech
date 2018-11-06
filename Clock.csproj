@@ -81,6 +81,7 @@
     <Content Include="Exp5-Gridview\Gridview.aspx" />
     <Content Include="Exp6-OptionConnection\GetSublist.aspx" />
     <Content Include="Exp6-OptionConnection\Option.html" />
+    <Content Include="Intro.html" />
     <Content Include="jquery-3.3.1.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
