@@ -17,11 +17,9 @@
                 <legend>Studentinfo</legend>
                 <!-- 新建gridview，定义样式，设置分页 -->
                 <asp:GridView ID="Studentinfo" runat="server" style="text-align: center"
-                    AllowPaging="True" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="stu_id"
-                    Font-Size="Medium" ForeColor="#333333" GridLines="None" PageSize="20" AllowSorting="True" Width="90%">
-                    <!-- 新建分页器 -->
+                    AllowPaging="False" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="stu_id"
+                    Font-Size="Medium" ForeColor="#333333" GridLines="None" AllowSorting="False" Width="90%">
                     <FooterStyle BackColor="#990000" Font-Bold="true" ForeColor="White"/>
-                    <!-- 创建列 -->
                     <Columns>
                         <asp:CommandField ShowSelectButton="True" ItemStyle-Width="15%"/>
                         <asp:BoundField DataField="stu_name" HeaderText="姓名" ItemStyle-Width="15%"/>
@@ -30,7 +28,6 @@
                         <asp:BoundField DataField="stu_faculty" HeaderText="专业" ItemStyle-Width="20%"/>
                         <asp:BoundField DataField="stu_class" HeaderText="班级" ItemStyle-Width="30%"/>
                     </Columns>
-                    <!-- 设置样式 -->
                     <RowStyle BackColor="#FFFBD6" ForeColor="#333333"/>
                     <SelectedRowStyle BackColor="#FFCC66" Font-Bold="true" ForeColor="Navy" />
                     <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
